@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-0">
+<h1 class="title">
+    Welcome, {{name}}!
+
+</h1>
+<br>
+<br>
+</div>
+
+<div style="width: 500; float: left;">
+    <form method="get" action="{{ url_for('clientes.formCliente') }}"> <button id="close" class="closing"
+            onClick="javascript:close_clip()"><img
+                src="https://www.evonline.com.br/wp-content/uploads/user.jpg" height="200" width="200"/></button></form>
+</div>
+
+<!--
+--><div style="display: table-cell; ">
+    <form method="get" action="{{ url_for('produtos.formProduto') }}" > <button id="close" class="closing"
+        onClick="javascript:close_clip()"><img
+            src="https://cdn-icons-png.flaticon.com/512/2011/2011008.png"  height="200" width="200"/></button></form>
+</div>
+
+
+{% endblock %}

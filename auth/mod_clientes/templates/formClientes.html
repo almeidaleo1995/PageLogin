@@ -1,0 +1,41 @@
+{% extends "modelo.html" %}
+
+{% block title %}Cliente{% endblock %}
+
+{% block content %}
+
+<h1 style="text-align: center;">Crud Clientes</h1>
+<div class="container">
+    <div>
+        <a href="{{ url_for('clientes.add') }}" style="text-align: center;">
+            <input type="button" value="Cadastrar Clientes" class="btn btn-success">
+        </a>
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Idade</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for e in cliente %}
+                <tr>
+                    <td>{{e.nome}}</td>
+                    <td>{{e.cpf}}</td>
+                    <td>{{e.idade}}</td>
+                    <td>
+                        <a href="{{ url_for('clientes.edit', id = e.id) }}">Editar</a> |
+                        <a href="{{ url_for('clientes.delete', id = e.id) }}">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
