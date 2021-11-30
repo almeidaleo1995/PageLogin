@@ -31,4 +31,6 @@ def create_app():
     app.register_blueprint(bp_clientes)
     from mod_produtos.produtos import bp_produtos
     app.register_blueprint(bp_produtos)
+    from mod_usuarios.usuarios import bp_usuarios
+    app.register_blueprint(bp_usuarios)
     return app
