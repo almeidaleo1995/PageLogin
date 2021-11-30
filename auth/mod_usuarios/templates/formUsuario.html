@@ -1,0 +1,43 @@
+{% extends "modelo.html" %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block content %}
+
+
+<h1 style="text-align: center;">Crud Usuarios</h1>
+<div class="container">
+    <div>
+        <a href="{{ url_for('usuarios.addUsuario') }}" style="text-align: center;">
+            <input type="button" value="Cadastrar Usuario" class="btn btn-success">
+        </a>
+        <div class="col-xs-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>email</th>   
+                    <th>Senha</th>                 
+                  
+                </tr>
+                </thead>
+                <tbody>
+                {% for e in user %}
+                <tr>
+                    <td>{{e.name}}</td>
+                    <td>{{e.email}}</td> 
+                    <td>{{e.password}}</td>                   
+                  
+                    <td>
+                        <a href="{{ url_for('usuarios.edit', id = e.id) }}">Editar</a> |
+                        <a href="{{ url_for('usuarios.delete', id = e.id) }}">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
